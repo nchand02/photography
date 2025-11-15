@@ -14,6 +14,10 @@ A modern, responsive photography academy website built with React, TypeScript, a
 - 🔒 Type-safe with TypeScript
 - ♿ Accessible and SEO-friendly
 
+## 🌐 Live Demo
+
+**Visit the live site**: [https://nchand02.github.io/photography/](https://nchand02.github.io/photography/)
+
 ## 🚀 Getting Started
 
 ### Prerequisites
@@ -125,6 +129,18 @@ photography/
 The AI chatbot uses Google's Gemini AI. To customize the chatbot's behavior, edit:
 - `src/config/gemini.config.ts` - System instructions and model configuration
 - `src/constants/siteData.ts` - Chatbot greeting message
+
+## 🚀 Deployment
+
+For detailed deployment instructions to GitHub Pages, see [DEPLOYMENT.md](./DEPLOYMENT.md).
+
+**Quick Deploy:**
+```bash
+npm run build
+npm run deploy
+```
+
+Your site will be live at: `https://nchand02.github.io/photography/`
 
 ## 🎨 Customization
 
