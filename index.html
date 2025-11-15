@@ -2,9 +2,29 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <link rel="icon" type="image/svg+xml" href="./vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <!-- SEO Meta Tags -->
     <title>Navdeep Singh Photography Academy</title>
+    <meta name="description" content="Learn the art of photography with Navdeep Singh. We offer courses for all levels, from beginner DSLR mastery to advanced portrait and street photography workshops in India." />
+    <meta name="keywords" content="photography courses, photography workshops, learn photography, beginner photography, advanced photography, portrait photography, street photography, DSLR photography, Canon 80D, Navdeep Singh photography, photography teacher India, Mumbai photography" />
+    <meta name="author" content="Navdeep Singh" />
+    <link rel="canonical" href="https://nchand02.github.io/photography/" />
+
+    <!-- Open Graph Meta Tags (for social media sharing) -->
+    <meta property="og:title" content="Navdeep Singh Photography Academy" />
+    <meta property="og:description" content="Capture the world through your lens. Learn the art of photography from Navdeep Singh, an Indian photographer dedicated to sharing his passion and expertise." />
+    <meta property="og:image" content="https://picsum.photos/1200/630?image=1050" />
+    <meta property="og:url" content="https://nchand02.github.io/photography/" />
+    <meta property="og:type" content="website" />
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Navdeep Singh Photography Academy" />
+    <meta name="twitter:description" content="Capture the world through your lens. Learn the art of photography from Navdeep Singh, an Indian photographer dedicated to sharing his passion and expertise." />
+    <meta name="twitter:image" content="https://picsum.photos/1200/630?image=1050" />
+
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/heroicons/2.1.1/24/outline/camera.svg" rel="stylesheet">
   <script type="importmap">
@@ -17,9 +37,55 @@
   }
 }
 </script>
+
+    <!-- Structured Data (JSON-LD) for Rich Snippets -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "EducationalOrganization",
+      "name": "Navdeep Singh Photography Academy",
+      "url": "https://nchand02.github.io/photography/",
+      "description": "A website for Navdeep Singh, an Indian photography enthusiast and teacher, featuring course information, a gallery, and an AI-powered chatbot to answer user questions about photography and courses.",
+      "founder": {
+        "@type": "Person",
+        "name": "Navdeep Singh",
+        "jobTitle": "Photography Instructor & Enthusiast",
+        "nationality": "Indian"
+      },
+      "hasCourse": [
+        {
+          "@type": "Course",
+          "name": "Beginner's DSLR Mastery",
+          "description": "Go from auto mode to full manual control. Understand aperture, shutter speed, ISO, and composition to unlock your camera's true potential.",
+          "provider": {
+            "@type": "EducationalOrganization",
+            "name": "Navdeep Singh Photography Academy"
+          }
+        },
+        {
+          "@type": "Course",
+          "name": "Advanced Portrait Photography",
+          "description": "Learn professional lighting techniques, posing, and editing to create stunning portraits that capture the essence of your subjects.",
+          "provider": {
+            "@type": "EducationalOrganization",
+            "name": "Navdeep Singh Photography Academy"
+          }
+        },
+        {
+          "@type": "Course",
+          "name": "Street Photography in India",
+          "description": "Capture the candid moments and vibrant stories of India's streets. This workshop focuses on storytelling, composition, and approaching subjects.",
+          "provider": {
+            "@type": "EducationalOrganization",
+            "name": "Navdeep Singh Photography Academy"
+          }
+        }
+      ]
+    }
+    </script>
 </head>
   <body>
     <div id="root"></div>
-    <script type="module" src="/index.tsx"></script>
+    <script type="module" src="./index.tsx"></script>
   </body>
 </html>

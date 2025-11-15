@@ -19,7 +19,7 @@ const testimonialsData: Testimonial[] = [
     }
 ];
 
-const TestimonialCard: React.FC<{ testimonial: Testimonial }> = ({ testimonial }) => (
+const TestimonialCard: React.FC<{ testimonial: Testimonial }> = React.memo(({ testimonial }) => (
     <div className="bg-gray-800 p-8 rounded-lg shadow-lg border border-gray-700">
         <p className="text-gray-300 text-lg italic mb-6">"{testimonial.quote}"</p>
         <div className="text-right">
@@ -27,7 +27,7 @@ const TestimonialCard: React.FC<{ testimonial: Testimonial }> = ({ testimonial }
             <p className="text-gray-400">{testimonial.location}</p>
         </div>
     </div>
-);
+));
 
 const Testimonials: React.FC = () => {
     return (
@@ -35,8 +35,8 @@ const Testimonials: React.FC = () => {
             <div className="container mx-auto px-6">
                 <h2 className="text-3xl font-bold text-center mb-12">What My Students Say</h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    {testimonialsData.map((testimonial, index) => (
-                        <TestimonialCard key={index} testimonial={testimonial} />
+                    {testimonialsData.map((testimonial) => (
+                        <TestimonialCard key={testimonial.author} testimonial={testimonial} />
                     ))}
                 </div>
             </div>

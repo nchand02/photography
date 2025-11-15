@@ -2,10 +2,10 @@ import React from 'react';
 
 const Hero: React.FC = () => {
     
-    const scrollToCourses = (e: React.MouseEvent<HTMLButtonElement>) => {
+    const scrollToCourses = React.useCallback((e: React.MouseEvent<HTMLButtonElement>) => {
         e.preventDefault();
         document.querySelector('#courses')?.scrollIntoView({ behavior: 'smooth' });
-    };
+    }, []);
 
     return (
         <section id="hero" className="relative h-screen flex items-center justify-center text-white text-center">

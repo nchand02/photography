@@ -23,9 +23,9 @@ const coursesData: Course[] = [
     }
 ];
 
-const CourseCard: React.FC<{ course: Course }> = ({ course }) => (
+const CourseCard: React.FC<{ course: Course }> = React.memo(({ course }) => (
     <div className="bg-gray-800 rounded-lg overflow-hidden shadow-lg transform hover:-translate-y-2 transition-transform duration-300 border border-gray-700 flex flex-col">
-        <img src={course.imageUrl} alt={course.title} className="w-full h-56 object-cover"/>
+        <img src={course.imageUrl} alt={course.title} className="w-full h-56 object-cover" loading="lazy"/>
         <div className="p-6 flex-grow flex flex-col">
             <h3 className="text-xl font-bold text-amber-400 mb-2">{course.title}</h3>
             <p className="text-gray-300 mb-4 flex-grow">{course.description}</p>
@@ -35,7 +35,7 @@ const CourseCard: React.FC<{ course: Course }> = ({ course }) => (
             </div>
         </div>
     </div>
-);
+));
 
 
 const Courses: React.FC = () => {
@@ -44,8 +44,8 @@ const Courses: React.FC = () => {
             <div className="container mx-auto px-6">
                 <h2 className="text-3xl font-bold text-center mb-12">Our Workshops & Courses</h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    {coursesData.map((course, index) => (
-                        <CourseCard key={index} course={course} />
+                    {coursesData.map((course) => (
+                        <CourseCard key={course.title} course={course} />
                     ))}
                 </div>
             </div>

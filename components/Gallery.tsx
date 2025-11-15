@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react';
+import React from 'react';
 import type { GalleryImage } from '../types';
 import Modal from './Modal';
 
@@ -13,15 +13,15 @@ const images: GalleryImage[] = [
 ];
 
 const Gallery: React.FC = () => {
-  const [selectedImage, setSelectedImage] = useState<GalleryImage | null>(null);
+  const [selectedImage, setSelectedImage] = React.useState<GalleryImage | null>(null);
 
-  const openModal = (image: GalleryImage) => {
+  const openModal = React.useCallback((image: GalleryImage) => {
     setSelectedImage(image);
-  };
+  }, []);
 
-  const closeModal = () => {
+  const closeModal = React.useCallback(() => {
     setSelectedImage(null);
-  };
+  }, []);
 
   return (
     <>
@@ -39,7 +39,7 @@ const Gallery: React.FC = () => {
                 role="button"
                 aria-label={`View image: ${image.alt}`}
               >
-                <img src={image.src} alt={image.alt} className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500 ease-in-out"/>
+                <img src={image.src} alt={image.alt} className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500 ease-in-out" loading="lazy"/>
                 <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-40 transition-opacity duration-300 flex items-end justify-start p-4">
                    <p className="text-white text-lg font-semibold opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-300">{image.alt}</p>
                 </div>

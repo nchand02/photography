@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React from 'react';
 import { Sender } from '../types';
 import type { Message } from '../types';
 import { createChatSession } from '../services/geminiService';
@@ -27,45 +27,48 @@ const LoadingIndicator = () => (
 );
 
 const Chatbot: React.FC = () => {
-    const [isOpen, setIsOpen] = useState(false);
-    const [messages, setMessages] = useState<Message[]>([]);
-    const [userInput, setUserInput] = useState('');
-    const [isLoading, setIsLoading] = useState(false);
-    const chatSession = useRef<Chat | null>(null);
-    const messagesEndRef = useRef<HTMLDivElement | null>(null);
+    const [isOpen, setIsOpen] = React.useState(false);
+    const [messages, setMessages] = React.useState<Message[]>([]);
+    const [userInput, setUserInput] = React.useState('');
+    const [isLoading, setIsLoading] = React.useState(false);
+    const chatSession = React.useRef<Chat | null>(null);
+    const messagesEndRef = React.useRef<HTMLDivElement | null>(null);
 
-    useEffect(() => {
+    React.useEffect(() => {
         chatSession.current = createChatSession();
         setMessages([
             {
+                id: 'initial-message',
                 sender: Sender.Model,
                 text: "Hello! I'm Vidya, your AI assistant. How can I help you with Navdeep's photography courses today?",
             },
         ]);
     }, []);
 
-    useEffect(() => {
+    React.useEffect(() => {
         messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
     }, [messages, isLoading]);
 
-    const handleSendMessage = async (e: React.FormEvent) => {
+    const handleSendMessage = React.useCallback(async (e: React.FormEvent) => {
         e.preventDefault();
         if (!userInput.trim() || isLoading) return;
 
-        const newUserMessage: Message = { sender: Sender.User, text: userInput };
+        const currentInput = userInput;
+        const newUserMessage: Message = { id: `user-${Date.now()}`, sender: Sender.User, text: currentInput };
         setMessages(prev => [...prev, newUserMessage]);
         setUserInput('');
         setIsLoading(true);
 
         try {
             if (chatSession.current) {
-                const response = await chatSession.current.sendMessage({ message: userInput });
-                const modelMessage: Message = { sender: Sender.Model, text: response.text };
+                const response = await chatSession.current.sendMessage({ message: currentInput });
+                const modelMessage: Message = { id: `model-${Date.now()}`, sender: Sender.Model, text: response.text };
                 setMessages(prev => [...prev, modelMessage]);
             }
         } catch (error) {
             console.error('Gemini API error:', error);
             const errorMessage: Message = {
+                id: `error-${Date.now()}`,
                 sender: Sender.Model,
                 text: 'Sorry, I seem to be having some trouble right now. Please try again later.',
             };
@@ -73,7 +76,7 @@ const Chatbot: React.FC = () => {
         } finally {
             setIsLoading(false);
         }
-    };
+    }, [userInput, isLoading]);
 
     return (
         <>
@@ -90,8 +93,8 @@ const Chatbot: React.FC = () => {
                     <h3 id="chat-heading" className="font-bold text-lg">Chat with Vidya</h3>
                 </header>
                 <div className="flex-1 p-4 overflow-y-auto bg-gray-100" aria-live="polite">
-                    {messages.map((msg, index) => (
-                        <div key={index} className={`flex mb-4 ${msg.sender === Sender.User ? 'justify-end' : 'justify-start'}`}>
+                    {messages.map((msg) => (
+                        <div key={msg.id} className={`flex mb-4 ${msg.sender === Sender.User ? 'justify-end' : 'justify-start'}`}>
                             <div className={`rounded-lg px-4 py-2 max-w-xs lg:max-w-md ${msg.sender === Sender.User ? 'bg-amber-500 text-white' : 'bg-gray-200 text-gray-800'}`}>
                                 <p className="text-sm" style={{ whiteSpace: 'pre-wrap' }}>{msg.text}</p>
                             </div>

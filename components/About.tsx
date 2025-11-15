@@ -6,7 +6,7 @@ const About: React.FC = () => {
             <div className="container mx-auto px-6">
                 <div className="flex flex-col md:flex-row items-center gap-12">
                     <div className="md:w-1/3">
-                        <img src="https://picsum.photos/600/600?image=836" alt="Navdeep Singh" className="rounded-full shadow-2xl mx-auto border-4 border-gray-700" />
+                        <img src="https://picsum.photos/600/600?image=836" alt="Navdeep Singh" className="rounded-full shadow-2xl mx-auto border-4 border-gray-700" loading="lazy" />
                     </div>
                     <div className="md:w-2/3 text-center md:text-left">
                         <h2 className="text-3xl font-bold mb-4 text-amber-400">About Navdeep Singh</h2>

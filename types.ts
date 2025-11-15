@@ -5,6 +5,7 @@ export enum Sender {
 }
 
 export interface Message {
+  id: string;
   sender: Sender;
   text: string;
 }

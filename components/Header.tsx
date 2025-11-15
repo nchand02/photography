@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 const CameraIcon = () => (
     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-8 h-8 text-amber-400">
@@ -8,7 +8,7 @@ const CameraIcon = () => (
 );
 
 const Header: React.FC = () => {
-    const [isOpen, setIsOpen] = useState(false);
+    const [isOpen, setIsOpen] = React.useState(false);
 
     const navLinks = [
         { href: '#about', label: 'About' },
@@ -17,11 +17,11 @@ const Header: React.FC = () => {
         { href: '#testimonials', label: 'Testimonials' },
     ];
 
-    const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>, href: string) => {
+    const handleLinkClick = React.useCallback((e: React.MouseEvent<HTMLAnchorElement, MouseEvent>, href: string) => {
         e.preventDefault();
         document.querySelector(href)?.scrollIntoView({ behavior: 'smooth' });
         setIsOpen(false);
-    };
+    }, []);
 
     return (
         <header className="bg-gray-900 bg-opacity-80 backdrop-blur-md text-white fixed top-0 left-0 right-0 z-50">
