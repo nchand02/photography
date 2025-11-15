@@ -9,7 +9,12 @@ interface CourseCardProps {
 
 const CourseCard = memo(({ course }: CourseCardProps) => (
   <div className="card transform hover:-translate-y-2 transition-transform duration-300 flex flex-col">
-    <img src={course.imageUrl} alt={course.title} className="w-full h-56 object-cover" loading="lazy" />
+    <img
+      src={course.imageUrl}
+      alt={course.title}
+      className="w-full h-56 object-cover"
+      loading="lazy"
+    />
     <div className="p-6 flex-grow flex flex-col">
       <h3 className="text-xl font-bold text-primary-400 mb-2">{course.title}</h3>
       <p className="text-gray-300 mb-4 flex-grow">{course.description}</p>

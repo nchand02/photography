@@ -5,7 +5,7 @@ export const COURSES_DATA: Course[] = [
     id: 'beginner-dslr',
     title: "Beginner's DSLR Mastery",
     description:
-      'Go from auto mode to full manual control. Understand aperture, shutter speed, ISO, and composition to unlock your camera\'s true potential.',
+      "Go from auto mode to full manual control. Understand aperture, shutter speed, ISO, and composition to unlock your camera's true potential.",
     price: '₹8,000',
     imageUrl: 'https://picsum.photos/600/400?image=20',
     duration: '4 weeks',
@@ -37,7 +37,7 @@ export const COURSES_DATA: Course[] = [
     id: 'street-photography',
     title: 'Street Photography in India',
     description:
-      'Capture the candid moments and vibrant stories of India\'s streets. This workshop focuses on storytelling, composition, and approaching subjects.',
+      "Capture the candid moments and vibrant stories of India's streets. This workshop focuses on storytelling, composition, and approaching subjects.",
     price: '₹10,000',
     imageUrl: 'https://picsum.photos/600/400?image=1074',
     duration: '3 weeks',

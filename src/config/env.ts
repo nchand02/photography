@@ -17,9 +17,7 @@ export const ENV = {
  */
 export function validateEnv(): void {
   if (!ENV.GEMINI_API_KEY) {
-    console.warn(
-      'Warning: VITE_GEMINI_API_KEY is not set. Chatbot functionality will not work.'
-    );
+    console.warn('Warning: VITE_GEMINI_API_KEY is not set. Chatbot functionality will not work.');
   }
 }
 

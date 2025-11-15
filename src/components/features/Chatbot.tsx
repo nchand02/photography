@@ -8,7 +8,7 @@ export function Chatbot() {
   const [isOpen, setIsOpen] = useState(false);
   const [userInput, setUserInput] = useState('');
   const messagesEndRef = useRef<HTMLDivElement | null>(null);
-  
+
   const { messages, isLoading, sendMessage } = useChat();
 
   useEffect(() => {

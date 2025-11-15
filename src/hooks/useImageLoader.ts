@@ -16,15 +16,9 @@ export function useImageLoader() {
     setErrorImages(prev => new Set(prev).add(src));
   }, []);
 
-  const isLoaded = useCallback(
-    (src: string) => loadedImages.has(src),
-    [loadedImages]
-  );
+  const isLoaded = useCallback((src: string) => loadedImages.has(src), [loadedImages]);
 
-  const hasError = useCallback(
-    (src: string) => errorImages.has(src),
-    [errorImages]
-  );
+  const hasError = useCallback((src: string) => errorImages.has(src), [errorImages]);
 
   return {
     handleImageLoad,

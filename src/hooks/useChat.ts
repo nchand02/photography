@@ -31,40 +31,43 @@ export function useChat(): UseChatReturn {
     ]);
   }, []);
 
-  const sendMessage = useCallback(async (text: string) => {
-    if (!text.trim() || isLoading) return;
+  const sendMessage = useCallback(
+    async (text: string) => {
+      if (!text.trim() || isLoading) return;
 
-    const userMessage: Message = {
-      id: `user-${Date.now()}`,
-      sender: 1 as Sender, // Sender.User
-      text: text.trim(),
-    };
-
-    setMessages(prev => [...prev, userMessage]);
-    setIsLoading(true);
-
-    try {
-      if (chatSession.current) {
-        const response = await chatSession.current.sendMessage({ message: text });
-        const modelMessage: Message = {
-          id: `model-${Date.now()}`,
-          sender: 0 as Sender, // Sender.Model
-          text: response.text || 'Sorry, I received an empty response.',
-        };
-        setMessages(prev => [...prev, modelMessage]);
-      }
-    } catch (error) {
-      console.error('Chat error:', error);
-      const errorMessage: Message = {
-        id: `error-${Date.now()}`,
-        sender: 0 as Sender, // Sender.Model
-        text: 'Sorry, I seem to be having some trouble right now. Please try again later.',
+      const userMessage: Message = {
+        id: `user-${Date.now()}`,
+        sender: 1 as Sender, // Sender.User
+        text: text.trim(),
       };
-      setMessages(prev => [...prev, errorMessage]);
-    } finally {
-      setIsLoading(false);
-    }
-  }, [isLoading]);
+
+      setMessages(prev => [...prev, userMessage]);
+      setIsLoading(true);
+
+      try {
+        if (chatSession.current) {
+          const response = await chatSession.current.sendMessage({ message: text });
+          const modelMessage: Message = {
+            id: `model-${Date.now()}`,
+            sender: 0 as Sender, // Sender.Model
+            text: response.text || 'Sorry, I received an empty response.',
+          };
+          setMessages(prev => [...prev, modelMessage]);
+        }
+      } catch (error) {
+        console.error('Chat error:', error);
+        const errorMessage: Message = {
+          id: `error-${Date.now()}`,
+          sender: 0 as Sender, // Sender.Model
+          text: 'Sorry, I seem to be having some trouble right now. Please try again later.',
+        };
+        setMessages(prev => [...prev, errorMessage]);
+      } finally {
+        setIsLoading(false);
+      }
+    },
+    [isLoading]
+  );
 
   const clearMessages = useCallback(() => {
     setMessages([
