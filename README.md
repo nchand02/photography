@@ -2,6 +2,7 @@
 
 A modern, responsive photography academy website built with React, TypeScript, and Tailwind CSS. Features an AI-powered chatbot using Google's Gemini AI to answer questions about photography courses.
 
+
 ## ✨ Features
 
 - 🎨 Modern, responsive design with Tailwind CSS
