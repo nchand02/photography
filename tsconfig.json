@@ -2,7 +2,7 @@
   "compilerOptions": {
     "target": "ES2022",
     "experimentalDecorators": true,
-    "useDefineForClassFields": true,
+    "useDefineForClassFields": false,
     "module": "ESNext",
     "lib": [
       "ES2022",
@@ -11,8 +11,7 @@
     ],
     "skipLibCheck": true,
     "types": [
-      "node",
-      "vite/client"
+      "node"
     ],
     "moduleResolution": "bundler",
     "isolatedModules": true,
@@ -21,16 +20,10 @@
     "jsx": "react-jsx",
     "paths": {
       "@/*": [
-        "./src/*"
+        "./*"
       ]
     },
     "allowImportingTsExtensions": true,
-    "noEmit": true,
-    "strict": true,
-    "esModuleInterop": true,
-    "forceConsistentCasingInFileNames": true,
-    "resolveJsonModule": true
-  },
-  "include": ["src"],
-  "exclude": ["node_modules", "dist"]
+    "noEmit": true
+  }
 }

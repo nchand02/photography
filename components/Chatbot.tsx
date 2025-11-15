@@ -1,7 +1,7 @@
 import React from 'react';
-import { Sender } from '../types';
-import type { Message } from '../types';
-import { createChatSession } from '../services/geminiService';
+import { Sender } from '../types.ts';
+import type { Message } from '../types.ts';
+import { createChatSession } from '../services/geminiService.ts';
 import type { Chat } from '@google/genai';
 
 

@@ -1,7 +1,7 @@
 
 import React from 'react';
-import type { GalleryImage } from '../types';
-import Modal from './Modal';
+import type { GalleryImage } from '../types.ts';
+import Modal from './Modal.tsx';
 
 const images: GalleryImage[] = [
   { id: 180, src: 'https://picsum.photos/800/600?image=180', alt: 'Man on a boat during sunset' },

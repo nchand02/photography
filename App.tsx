@@ -1,14 +1,14 @@
 
 import React from 'react';
-import Header from './components/Header';
-import Hero from './components/Hero';
-import About from './components/About';
-import Gear from './components/Gear';
-import Courses from './components/Courses';
-import Gallery from './components/Gallery';
-import Testimonials from './components/Testimonials';
-import Footer from './components/Footer';
-import Chatbot from './components/Chatbot';
+import Header from './components/Header.tsx';
+import Hero from './components/Hero.tsx';
+import About from './components/About.tsx';
+import Gear from './components/Gear.tsx';
+import Courses from './components/Courses.tsx';
+import Gallery from './components/Gallery.tsx';
+import Testimonials from './components/Testimonials.tsx';
+import Footer from './components/Footer.tsx';
+import Chatbot from './components/Chatbot.tsx';
 
 const App: React.FC = () => {
   return (

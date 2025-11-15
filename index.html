@@ -25,6 +25,18 @@
     <meta name="twitter:description" content="Capture the world through your lens. Learn the art of photography from Navdeep Singh, an Indian photographer dedicated to sharing his passion and expertise." />
     <meta name="twitter:image" content="https://picsum.photos/1200/630?image=1050" />
 
+    <script src="https://cdn.tailwindcss.com"></script>
+  <script type="importmap">
+{
+  "imports": {
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.29.0",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/"
+  }
+}
+</script>
+
     <!-- Structured Data (JSON-LD) for Rich Snippets -->
     <script type="application/ld+json">
     {
@@ -70,9 +82,10 @@
       ]
     }
     </script>
-  </head>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
   <body>
     <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
+    <script type="text/babel" data-type="module" src="./index.tsx"></script>
   </body>
 </html>
